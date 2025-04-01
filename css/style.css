@@ -1,0 +1,564 @@
+:root {
+    --primary-color: #ffffff;
+    --secondary-color: #ff6384;
+    --background-color: #ffffff;
+    --secondary-background-color: #333;
+    --text-color: #000000;
+    --secondary-text-color: #36a2eb;
+    --on-text-color: gray;
+    --card-border: #ccc;
+    --font-family: 'Quicksand', sans-serif;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+html{
+    background-color: var(--secondary-background-color);
+}
+body{
+    background-color: var(--background-color);
+}
+.moving-title {
+    font-size: 3rem;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    display: inline-block; /* Assure que l'élément est traité comme un bloc */
+    min-height: 1.2em; /* Fixe une hauteur minimale basée sur la taille du texte */
+    line-height: 1.2;
+}
+
+/* Déclaration des polices */
+@font-face {
+    font-family: 'Righteous';
+    src: url('../fonts/RubikMonoOne-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url('../fonts/Quicksand-VariableFont_wght.ttf') format('truetype');
+}
+
+/* Application des polices */
+body {
+    font-family: var(--font-family);
+    /* Police par défaut pour tout le texte */
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2 {
+    font-family: var(--font-family);
+    /* Police spécifique pour h1 et h2 */
+}
+
+/* Style pour le menu */
+nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 20px 30px;
+    /* Augmente la taille de la barre */
+}
+
+.menu {
+    list-style: none;
+    /* Supprime les puces */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    /* Affiche les éléments côte à côte */
+    gap: 30px;
+    /* Augmente l'espacement entre les éléments */
+}
+
+.menu li {
+    display: inline;
+    /* Affiche les éléments en ligne */
+}
+
+.menu a {
+    position: relative;
+    /* Nécessaire pour les pseudo-éléments */
+    text-decoration: none;
+    /* Supprime le soulignement */
+    color: var(--text-color);
+    /* Texte en noir */
+    font-family: var(--font-family);
+    /* Police par défaut */
+    font-size: 1.2rem;
+    /* Augmente la taille du texte */
+    padding: 5px 0;
+    /* Ajoute un peu d'espace autour du texte */
+    transition: color 0.3s;
+    /* Animation pour le changement de couleur */
+}
+
+.menu a:hover {
+    color: var(--on-text-color);
+    /* Change la couleur au survol */
+}
+
+/* Animation de soulignement */
+.menu a::before,
+.menu a::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    /* Épaisseur de la ligne */
+    background-color: var(--on-text-color);
+    /* Couleur de la ligne */
+    width: 0;
+    /* Ligne invisible au départ */
+    transition: width 0.3s ease;
+    /* Animation de la largeur */
+    bottom: 0;
+    /* Positionne la ligne en bas du lien */
+}
+
+.menu a::before {
+    left: 50%;
+    /* Commence au centre */
+    transform: translateX(-50%);
+}
+
+.menu a::after {
+    right: 50%;
+    /* Commence au centre */
+    transform: translateX(50%);
+}
+
+.menu a:hover::before {
+    width: 50%;
+    /* Étend la ligne vers la gauche */
+}
+
+.menu a:hover::after {
+    width: 50%;
+    /* Étend la ligne vers la droite */
+}
+
+.menu a.active {
+    color: var(--on-text-color);
+    /* Change la couleur en gris pour la page active */
+    text-decoration: none;
+    /* Pas de soulignement par défaut */
+}
+/* Styles de base pour le menu burger */
+.burger-menu {
+    display: none; /* Masqué par défaut */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1000; /* Assure que le bouton est au-dessus du menu */
+}
+
+.burger-menu span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: var(--text-color);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Styles pour le menu en mode mobile */
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row; /* Par défaut : horizontal */
+    gap: 30px;
+    transition: transform 0.3s ease;
+}
+
+.menu li {
+    display: inline;
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    padding: 5px 0;
+    transition: color 0.3s;
+}
+
+
+
+/* Animation pour le menu burger */
+.burger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+/* --------------------------------------------------HOME---------------------------------------------------------- */
+
+/* Style pour le conteneur principal */
+.home-container {
+    display: flex;
+    /* Active le mode flexbox */
+    justify-content: space-between;
+    /* Espace égal entre les éléments */
+    align-items: center;
+    /* Aligne les éléments verticalement */
+    height: 100vh;
+    /* Prend toute la hauteur de la fenêtre */
+    padding: 0 20px;
+    /* Ajoute un peu d'espace sur les côtés */
+    box-sizing: border-box;
+    /* Inclut le padding dans la largeur totale */
+}
+
+/* Chaque div occupe 50% de l'espace */
+.home-text,
+.home-illustration-container {
+    flex: 1;
+    /* Chaque div prend une part égale de l'espace */
+}
+
+/* Style pour l'image */
+.home-illustration {
+    max-width: 100%;
+    /* L'image ne dépasse pas la largeur de son conteneur */
+    height: auto;
+    /* Conserve les proportions de l'image */
+}
+
+.home-text {
+    max-width: 40%;
+    padding-left: 5%;
+    /* Limite la largeur à 60% du conteneur parent */
+}
+
+
+.chart {
+    flex: 1;
+    max-width: 300px;
+    /* Réduit la largeur du canvas */
+    max-height: 300px;
+    /* Réduit la hauteur du canvas */
+    display: block;
+    /* Supprime les marges automatiques */
+    margin: 0 auto;
+    /* Centre le canvas horizontalement */
+}
+
+.home-chart-container {
+    display: flex;
+    /* Active le mode flexbox */
+    justify-content: space-around;
+    /* Ajoute un espace égal autour des éléments */
+    align-items: center;
+    /* Aligne les éléments verticalement */
+    gap: 10px;
+    /* Réduit l'espacement entre les graphiques */
+}
+/* --------------------------------------------------Contact---------------------------------------------------------- */
+
+.contact-section {
+    display: flex;
+    flex-direction: column;
+    /* Empile les éléments verticalement */
+    justify-content: center;
+    /* Centre les éléments verticalement */
+    align-items: center;
+    /* Centre les éléments horizontalement */
+    height: 100vh;
+    /* Prend toute la hauteur de la fenêtre */
+    margin: 0;
+    padding: 0;
+}
+
+.contact-section h1 {
+    text-align: center;
+    /* Centre le titre horizontalement */
+    margin-bottom: 20px;
+    /* Ajoute un espace entre le titre et la carte */
+    font-size: 2rem;
+    /* Ajuste la taille du titre */
+    color: var(--secondary-background-color);
+    /* Couleur du texte */
+}
+
+.contact-card {
+    background: var(--background-color);
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--card-border);
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    resize: none;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: var(--secondary-text-color);
+    color: var(--background-color);
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--secondary-text-color);
+}
+/* --------------------------------------------------FOOTER---------------------------------------------------------- */
+
+.footer {
+    background-color: var(--secondary-background-color);
+    /* Couleur de fond du footer */
+    color: var(--background-color);
+    /* Couleur du texte */
+    text-align: center;
+    /* Centre le contenu */
+    padding: 20px 0;
+    /* Espacement vertical */
+    margin-top: 20px;
+    /* Ajoute un espace au-dessus du footer */
+}
+
+.footer-links a {
+    color: var(--background-color);
+    /* Couleur des icônes */
+    margin: 0 10px;
+    /* Espacement entre les icônes */
+    font-size: 1.5rem;
+    /* Taille des icônes */
+    transition: color 0.3s ease;
+    /* Animation fluide pour le survol */
+}
+
+.footer-links a:hover {
+    color: var(--secondary-text-color);
+}
+
+/* --------------------------------------------------WORK---------------------------------------------------------- */
+/* Section des projets */
+.work-section {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #ffffff;
+
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: val(--text-color);
+}
+
+/* Conteneur des cartes */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 80rem;
+    margin: 0 auto;
+}
+
+/* Style des cartes */
+.card {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.card-label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #36a2eb;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+.card-tags {
+    margin-top: 10px;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tag {
+    color: #ffffff;
+    padding: 5px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+.tag-html {
+    background: linear-gradient(to right, #e44d26 50%, #f16529 50%);
+
+}
+
+.tag-css {
+    background: linear-gradient(to right, #0c73b8 50%, #30aadd 50%);
+}
+
+.tag-js {
+    background: linear-gradient(to right, #e7a328 50%, #f2bf26 50%);
+}
+
+.tag-kotlin {
+    background: linear-gradient(90deg,#e54857,#c811e2 50%,#7f52ff);}
+
+.tag-python {
+    background: linear-gradient(to right, #3c77a8 50%, #fdd249 50%);
+}
+
+.tag-java {
+    background-color: #eb9a26;
+}
+
+.tag-compose {
+    background: linear-gradient(90deg, #103748, #43dd88, #4889f4);
+}
+
+.tag-php {
+    background: linear-gradient(90deg, #b0b3d6, #323aa5);
+}
+.tag-xml {
+    background-color: #ff7020;
+}
+.tag-unity{
+    background-color: #4e4e4e;
+}
+.tag-c-sharp{
+    background: linear-gradient(90deg, #9e539b, #84388a 50%, #6c287d);
+}
+.tag-c-plus-plus{
+    background: linear-gradient(90deg, #6a9dd3, #085e9f 50%, #084a86);
+}
+.tag-arduino{
+    background-color: #3e8990;
+}
+.tag-flutter{
+    background: linear-gradient(90deg, #4bd2fd, #25bdfd 50%, #0d5f9f);
+}
+.tag-dart{
+    background: linear-gradient(90deg, #08d3b9, #0886ca);
+}
+.tag-swift
+{
+    background: linear-gradient(90deg, #fba142, #fd5232);
+}
+/*---------------------------------------------------3D---------------------------------------------------------- */
+.viewer-section{
+    overflow: hidden;
+}
+
+
+
+
+
+
+@media (max-width: 768px) {
+    .burger-menu {
+        display: flex; /* Affiche le menu burger */
+    }
+
+    .menu {
+        flex-direction: column; /* Menu vertical */
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: var(--background-color);
+        width: 200px;
+        transform: translateX(100%); /* Cache le menu hors de l'écran */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .menu.active {
+        transform: translateX(0); /* Affiche le menu */
+    }
+
+    .menu li {
+        margin: 10px 0;
+        text-align: center;
+    }
+    .home-illustration-container {
+        display: none; /* Cache complètement le conteneur */
+    }
+    .home-text {
+        max-width: 100%;
+        padding-left: 0;
+    }
+    .home-text p{
+        text-align: justify;
+    }
+
+}
