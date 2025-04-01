@@ -28,8 +28,8 @@ body{
     white-space: nowrap;
     overflow: hidden;
     display: inline-block;
-    display: inline-block; /* Assure que l'élément est traité comme un bloc */
-    min-height: 1.2em; /* Fixe une hauteur minimale basée sur la taille du texte */
+    display: inline-block;
+    min-height: 1.2em;
     line-height: 1.2;
 }
 
