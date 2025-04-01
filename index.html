@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" type="image/png" href="favicon.svg">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <button class="burger-menu" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="pages/work.html">Projet</a></li>
+                <li><a href="pages/about.html">À propos</a></li>
+                <li><a href="pages/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="home-container">
+            <div class="home-text">
+                <h1 class="moving-title">Bonjour;Je suis;Yannis ROYER</h1>
+                <p>Je suis un jeune développeur, je crée des applications web et mobiles.
+                    Si vous souhaitez que je réalise l'une ou l'autre de ces choses pour vous,
+                    ou si vous avez besoin d'un nouveau développeur dans votre équipe, contactez-moi
+                    <a href="/pages/contact.html">ici</a>.
+                </p>
+                <!--
+                <div class="home-chart-container">
+                    <canvas id="frontChart" class="chart"></canvas>
+                    <canvas id="backChart" class="chart"></canvas>
+                </div>
+                -->
+            </div>
+            <div class="home-illustration-container">
+                <img src="assets/img/home-illustration.jpg" alt="home-illustration" class="home-illustration">
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer-links">
+            <a target="_blank" href="mailto:royeryannis@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a target="_blank" href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
+            <a target="_blank" href="https://github.com/royeryannis"><i class="fab fa-github"></i></a>
+            <a target="_blank" href="https://linkedin.com/in/"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+    <script src="js/movingText.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/chart.js"></script>
+</body>
+
+</html>
