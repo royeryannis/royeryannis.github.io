@@ -31,29 +31,56 @@
             <ul class="menu">
                 <li><a href="../../index.html">Accueil</a></li>
                 <li><a href="../work.html">Projet</a></li>
-                <li><a href="../about.html">À propos</a></li>
+                <li><a href="../about.html">à propos de moi</a></li>
                 <li><a href="../contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
     <main class="work-detail-main">
-        <div>
+        <div class="work-detail-content">
             <section>
-                <h1>Visualiseur de modèle 3D</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate atque ipsam aut autem, ratione provident repellendus porro consectetur voluptatem possimus architecto magni eius voluptates excepturi maiores obcaecati sed. In, iusto!
-                Vero, error! Sed fugiat explicabo alias laudantium eos cumque nostrum corporis praesentium, officiis nisi, cum adipisci consectetur. Esse impedit molestiae dolorum illum est nemo minima molestias, eligendi recusandae placeat atque?
-                Officiis odit sapiente placeat temporibus sequi est, suscipit vero pariatur rerum facere dolorem vel expedita voluptatem neque, doloribus quo veritatis possimus voluptatibus ipsam quisquam! Pariatur, repellat. Expedita natus ab sint!
-                Laudantium aliquid suscipit illum autem voluptatum beatae alias commodi a? Earum iure blanditiis ab nisi aut eos error! Excepturi tempore suscipit, animi eveniet dolore quod expedita eum. Culpa, tempore quaerat.
-                Tempora non dicta eligendi veritatis eius debitis magnam. Error explicabo suscipit fugit sit dolores, quo quod non assumenda quibusdam nam sequi sunt molestias modi provident ut dignissimos distinctio adipisci. Voluptatibus?
-                Debitis repudiandae nam odit numquam ratione quidem quaerat facere sint eaque! Explicabo officiis velit aliquam optio quos adipisci amet eum ipsam hic, voluptates dolorum doloremque laborum totam ab asperiores quisquam?
-                Architecto tempora animi sit nihil esse maxime, laborum nulla odio error velit et obcaecati magni! Cumque ex quis consequuntur asperiores voluptates minus nostrum natus facere est, corporis magnam, dolorum at!
-                Nulla ullam dolore adipisci assumenda. Nulla, dignissimos optio ex itaque dolores reprehenderit aut temporibus. Ducimus, rerum beatae. Natus commodi optio hic. Assumenda earum doloribus iusto quis velit hic iure provident.
-                Iure unde quod asperiores quam harum voluptatem cupiditate expedita amet enim totam, recusandae impedit reprehenderit iusto rerum porro possimus, sequi architecto aliquid esse odio eveniet quia vel ipsum rem. Maxime?
-                Dolorem assumenda delectus ut aliquid, dignissimos dolores a nemo suscipit voluptates consequatur voluptatibus architecto ea soluta adipisci fugit odio unde nisi autem dolor excepturi accusamus provident eveniet? Ducimus, a quod.</p>
-                <div id="viewer"></div>
+                <h1>Football4U</h1>
+                <p>Football4U est une application mobile innovante qui permet de suivre les résultats des matchs, les
+                    statistiques des joueurs, les classements des ligues et bien plus encore. Grâce à l'API Sportmonks,
+                    elle offre des données précises et en temps réel pour les passionnés de football.</p>
             </section>
+            <section>
+                <h2>Galerie</h2>
+                <video autoplay loop muted style="width: 100%; max-width: 200px;">
+                    <source src="../../assets/videos/football4u.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture des vidéos.
+                </video>
+                <img src="../../assets/img/Screenshot_2025-04-10-15-31-16-50_549c95454f322c5ce874f378a3131a2b.jpg"
+                    alt="Capture d'écran 2" style="width: 100%; max-width: 200px;">
+            </section>
+            <section>
+                <h2>Fonctionnalités</h2>
+                <ul>
+                    <li>Résultats des matchs en temps réel.</li>
+                    <li>Classements des ligues et des clubs.</li>
+                    <li>Statistiques détaillées des joueurs et des équipes.</li>
+                    <li>Calendrier des matchs à venir.</li>
+                    <li>Favoris pour mieux suivre vos équipes et clubs préférez</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Comment ça marche ?</h2>
+                <p>Chargez un fichier 3D au format GLB ou GLTF, et utilisez les contrôles pour explorer le modèle. Le
+                    visualiseur utilise la bibliothèque Three.js pour rendre les objets en 3D.</p>
+            </section>
+            <section>
+                <h2>À propos du projet</h2>
+                <p>Ce projet a été développé pour explorer les possibilités de la visualisation 3D sur le web. Il
+                    utilise Three.js pour offrir une expérience fluide et interactive.</p>
+            </section>
+            <section>
+                <h2>Ressources</h2>
+                <p><a href="https://github.com/royer-yannis/football4u" target="_blank">Voir le code source sur
+                        GitHub</a></p>
+            </section>
+
         </div>
-        <canvas id="canvas-football-4u" class="model3D" style="width: 80%; height: 1000px;"></canvas>
+        <canvas id="canvas-football-4u" class="model3D"></canvas>
 
     </main>
     <script src="../../js/script.js"></script>

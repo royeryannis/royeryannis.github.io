@@ -69,15 +69,15 @@ function initializeViewer(modelPath, idCanvas) {
     );
 
     // Position de la caméra
-    camera.position.set(0, 0, 35);
+    camera.position.set(0, 0, 30);
 
     const controls = new OrbitControls(camera, renderer.domElement);
-    controls.enablePan = false; // Désactiver le déplacement de la caméra
-    controls.dampingFactor = 0.1; // Diminuer la vitesse de rotation
+    // controls.enablePan = false; // Désactiver le déplacement de la caméra
+    // controls.dampingFactor = 0.1; // Diminuer la vitesse de rotation
     controls.enableDamping = true; // Activer le damping pour un mouvement plus fluide
     controls.minAzimuthAngle = -Math.PI / 2; // -90°
     controls.maxAzimuthAngle = Math.PI / 2;  // 90°
-    controls.minDistance = 25; // Distance minimale (zoom avant)
+    controls.minDistance = 24; // Distance minimale (zoom avant)
     controls.maxDistance = 50; // Distance maximale (zoom arrière)
 
     // Animation
@@ -88,12 +88,7 @@ function initializeViewer(modelPath, idCanvas) {
     }
     animate();
 
-    // Ajuster la scène au redimensionnement
-    window.addEventListener('resize', () => {
-        renderer.setSize(width, height);
-        camera.aspect = width / width;
-        camera.updateProjectionMatrix();
-    });
+    
 }
 
 // Vérifiez si un canvas avec un ID spécifique existe
