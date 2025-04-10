@@ -443,6 +443,7 @@ nav {
     font-size: 0.9rem;
     color: #555;
     line-height: 1.5;
+    margin-top: 5px;
 }
 
 .card-tags {
@@ -485,7 +486,7 @@ nav {
 }
 
 .tag-compose {
-    background: linear-gradient(90deg, #103748, #43dd88, #4889f4);
+    background: linear-gradient(to right, #103748 33.33%, #43dd88 33.33%, #43dd88 66.66%, #4889f4 66.66%);
 }
 
 .tag-php {
@@ -506,19 +507,43 @@ nav {
 .tag-arduino{
     background-color: #3e8990;
 }
-.tag-flutter{
-    background: linear-gradient(90deg, #4bd2fd, #25bdfd 50%, #0d5f9f);
+.tag-flutter {
+    background: linear-gradient(to right, #4bd2fd 33.33%, #25bdfd 33.33%, #25bdfd 66.66%, #0d5f9f 66.66%);
 }
-.tag-dart{
-    background: linear-gradient(90deg, #08d3b9, #0886ca);
+.tag-dart {
+    background: linear-gradient(to right, #08d3b9 50%, #0886ca 50%);
 }
 .tag-swift
 {
     background: linear-gradient(90deg, #fba142, #fd5232);
 }
+.tag-mysql{
+    background: linear-gradient(to right, #08668e 50%, #e59208 50%);
+}
+.tag-firebase{
+    background: linear-gradient(to right, #ffc608 33.33%, #ff9408 33.33%, #ff9408 66.66%, #de3308 66.66%);
+
+}
+/*---------------------------------------------------work-detail---------------------------------------------------------- */
+.work-detail-main {
+    display: flex;
+
+    justify-content: space-between;
+}
+
+canvas {
+
+    display: block; /* Supprime les marges automatiques */
+}
+.model3D-container{
+    width: 50%;
+    overflow: hidden;
+}
+
 /*---------------------------------------------------3D---------------------------------------------------------- */
 .viewer-section{
     overflow: hidden;
+    text-align: center;
 }
 
 

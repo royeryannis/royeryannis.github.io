@@ -1,4 +1,3 @@
-
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
@@ -9,38 +8,46 @@ function initializeViewer(modelPath, idCanvas) {
         console.error("Canvas avec l'ID '" + idCanvas + "'  introuvable.");
         return;
     }
-
+   
     // Création de la scène
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 0.1, 100);
     const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(500, canvas.clientHeight);
     renderer.setClearColor(0xffffff, 1); // Définit le fond en blanc
     renderer.setPixelRatio(window.devicePixelRatio); // Améliore la qualité sur les écrans haute résolution
 
-
-
-
-    function setSize(width, height) {
-        renderer.setSize(width, height, true);
-        camera.aspect = width / height;
-        camera.updateProjectionMatrix();
+    function setSizeToParent() {
+        const parent = canvas.parentElement; // Récupère le parent du canvas
+        renderer.setSize(canvas.clientWidth, canvas.clientHeight); // Ajuste la taille du renderer
+        camera.aspect = canvas.clientWidth / canvas.clientHeight; // Met à jour l'aspect de la caméra
+        camera.updateProjectionMatrix(); // Met à jour la matrice de projection
     }
 
+    // Appeler la fonction pour définir la taille initiale
+    setSizeToParent();
 
-    setSize(500, 500)
-
+    // Ajuster la taille au redimensionnement de la fenêtre
+    window.addEventListener('resize', setSizeToParent);
     let model;
     const pivot = new THREE.Group();
     scene.add(pivot);
 
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-    directionalLight.position.set(10, 10, 10); // Position de la lumière
-    scene.add(directionalLight);
+    // Ajouter plusieurs lumières directionnelles autour de l'objet
+    const lightPositions = [
+        [10, 10, 10],  // Lumière en haut à droite
+        [-10, 10, 10], // Lumière en haut à gauche
+        [10, -10, 10], // Lumière en bas à droite
+        [-10, -10, 10], // Lumière en bas à gauche
+        [0, 10, -10],  // Lumière derrière en haut
+        [0, -10, -10]  // Lumière derrière en bas
+    ];
 
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); // Lumière douce
-    scene.add(ambientLight);
-
+    lightPositions.forEach(position => {
+        const light = new THREE.DirectionalLight(0xffffff, 0.5); // Intensité réduite pour éviter une surexposition
+        light.position.set(...position);
+        scene.add(light);
+    });
     // Chargement du modèle GLB avec gestion des erreurs
     const loader = new GLTFLoader();
     loader.load(
@@ -83,8 +90,8 @@ function initializeViewer(modelPath, idCanvas) {
 
     // Ajuster la scène au redimensionnement
     window.addEventListener('resize', () => {
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        camera.aspect = window.innerWidth / window.innerHeight;
+        renderer.setSize(width, height);
+        camera.aspect = width / width;
         camera.updateProjectionMatrix();
     });
 }
@@ -92,7 +99,4 @@ function initializeViewer(modelPath, idCanvas) {
 // Vérifiez si un canvas avec un ID spécifique existe
 if (document.getElementById('canvas-football-4u')) {
     initializeViewer('../../assets/3D/football4u.glb', "canvas-football-4u");
-}
-if (document.getElementById('canvas-football-4u1')) {
-    initializeViewer('../../assets/3D/football4u.glb', "canvas-football-4u1");
 }
