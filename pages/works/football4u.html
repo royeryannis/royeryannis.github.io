@@ -4,9 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GLB Viewer</title>
+    <title>Football4U</title>
     <link rel="icon" type="image/png" href="../../favicon.svg">
     <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 
     <script type="importmap">
         {
@@ -31,58 +33,78 @@
             <ul class="menu">
                 <li><a href="../../index.html">Accueil</a></li>
                 <li><a href="../work.html">Projet</a></li>
-                <li><a href="../about.html">à propos de moi</a></li>
+                <li><a href="../about.html">À propos de moi</a></li>
                 <li><a href="../contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
     <main class="work-detail-main">
         <div class="work-detail-content">
-            <section>
+            <section class="work-detail-top">
                 <h1>Football4U</h1>
-                <p>Football4U est une application mobile innovante qui permet de suivre les résultats des matchs, les
+                <p>Football4U est une application mobile qui permet de suivre les résultats des matchs, les
                     statistiques des joueurs, les classements des ligues et bien plus encore. Grâce à l'API Sportmonks,
                     elle offre des données précises et en temps réel pour les passionnés de football.</p>
+                <div class="card">
+                    <h2>Ce que j'ai utilisé.</h2>
+                    <div class="card-tags">
+                        <span class="tag tag-compose">Jetpack-compose</span>
+                        <span class="tag tag-kotlin">Kotlin</span>
+                        <span class="tag tag-firebase">Firebase</span>
+                        <span class="tag tag-git">Git</span>
+                        <span class="tag tag-postman">Postman</span>
+                        <span class="tag tag-figma">Figma</span>
+                        <span class="tag tag-android">Android Studio</span>
+                        <a href="https://www.sportmonks.com/" target="_blank"
+                            class="tag tag-sportmonks tag-link">Sportmonks API</a>
+                    </div>
+                </div>
             </section>
             <section>
                 <h2>Galerie</h2>
+                <p>En dessous, vous trouverez des images illustrant certaines des pages du projet. Dans ce projet, nous
+                    arrivons sur une page avec des ligues, des équipes et des matchs. Cette page, visible sur le modèle
+                    3D à votre droite, permet de naviguer vers ces pages pour observer les statistiques des équipes,
+                    leurs joueurs et leurs prochains matchs.
+                    <br><br>
+                    Nous pouvons également consulter les ligues, où nous avons accès aux statistiques, au classement
+                    ainsi qu'aux matchs liés aux équipes. De plus, nous pouvons voir les matchs, comme sur les pages
+                    juste en dessous, et accéder à la composition des équipes ainsi qu'aux statistiques des matchs.
+                    <br><br>
+                    Enfin, il est possible d'ajouter des favoris pour une expérience plus focalisée sur vos préférences.
+                    À noter que la page de paris n'existe pas encore et qu'elle devra utiliser des points et non de
+                    l'argent, étant donné que le but est de pouvoir observer ses prédictions.
+                </p>
                 <video autoplay loop muted style="width: 100%; max-width: 200px;">
                     <source src="../../assets/videos/football4u.mp4" type="video/mp4">
                     Votre navigateur ne supporte pas la lecture des vidéos.
                 </video>
-                <img src="../../assets/img/Screenshot_2025-04-10-15-31-16-50_549c95454f322c5ce874f378a3131a2b.jpg"
-                    alt="Capture d'écran 2" style="width: 100%; max-width: 200px;">
+                <img src="../../assets/img/not-played.jpg" alt="Capture d'écran not played"
+                    style="width: 100%; max-width: 200px;">
+                <!-- <img src="../../assets/img/team.jpg"alt="Capture d'écran team" style="width: 100%; max-width: 200px;"> -->
+                <img src="../../assets/img/league.jpg" alt="Capture d'écran league"
+                    style="width: 100%; max-width: 200px;">
+                <p> Enfin, vous pourrez retrouver ce projet sur mon GitHub, <a href="https://github.com/royeryannis"
+                        target="_blank">juste ici <i class="fab fa-github"></i></a>.
+                </p>
             </section>
-            <section>
-                <h2>Fonctionnalités</h2>
-                <ul>
-                    <li>Résultats des matchs en temps réel.</li>
-                    <li>Classements des ligues et des clubs.</li>
-                    <li>Statistiques détaillées des joueurs et des équipes.</li>
-                    <li>Calendrier des matchs à venir.</li>
-                    <li>Favoris pour mieux suivre vos équipes et clubs préférez</li>
-                </ul>
-            </section>
-            <section>
-                <h2>Comment ça marche ?</h2>
-                <p>Chargez un fichier 3D au format GLB ou GLTF, et utilisez les contrôles pour explorer le modèle. Le
-                    visualiseur utilise la bibliothèque Three.js pour rendre les objets en 3D.</p>
-            </section>
-            <section>
-                <h2>À propos du projet</h2>
-                <p>Ce projet a été développé pour explorer les possibilités de la visualisation 3D sur le web. Il
-                    utilise Three.js pour offrir une expérience fluide et interactive.</p>
-            </section>
-            <section>
-                <h2>Ressources</h2>
-                <p><a href="https://github.com/royer-yannis/football4u" target="_blank">Voir le code source sur
-                        GitHub</a></p>
-            </section>
+
 
         </div>
         <canvas id="canvas-football-4u" class="model3D"></canvas>
 
     </main>
+    <footer class="footer">
+        <div class="footer-links">
+            <a target="_blank" href="mailto:royeryannis@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a target="_blank" href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
+            <a target="_blank" href="https://github.com/royeryannis"><i class="fab fa-github"></i></a>
+            <a target="_blank" href="https://linkedin.com/in/"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p class="attribution">
+            @2025 Yannis ROYER. <br>
+        </p>
+    </footer>
     <script src="../../js/script.js"></script>
 
 </body>
