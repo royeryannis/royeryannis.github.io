@@ -1,6 +1,6 @@
-import * as THREE from 'three';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.module.js';
+import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.152.2/examples/jsm/loaders/GLTFLoader.js';
+import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.152.2/examples/jsm/controls/OrbitControls.js';
 function initializeViewer(modelPath, idCanvas) {
     // Récupérer le canvas existant
     const canvas = document.getElementById(idCanvas);
@@ -44,7 +44,7 @@ function initializeViewer(modelPath, idCanvas) {
     ];
 
     lightPositions.forEach(position => {
-        const light = new THREE.DirectionalLight(0xffffff, 0.5); // Intensité réduite pour éviter une surexposition
+        const light = new THREE.DirectionalLight(0xffffff, 0.1); // Intensité réduite pour éviter une surexposition
         light.position.set(...position);
         scene.add(light);
     });
@@ -70,7 +70,6 @@ function initializeViewer(modelPath, idCanvas) {
 
     // Position de la caméra
     camera.position.set(0, 0, 30);
-
     const controls = new OrbitControls(camera, renderer.domElement);
     // controls.enablePan = false; // Désactiver le déplacement de la caméra
     // controls.dampingFactor = 0.1; // Diminuer la vitesse de rotation

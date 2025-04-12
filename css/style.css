@@ -751,7 +751,26 @@ canvas {
     z-index: 10;
     /* Assure que le canvas est au-dessus des autres éléments */
 }
+/*---------------------------------------------------About---------------------------------------------------------- */
 
+.animated-image {
+    position: relative; /* Nécessaire pour le déplacement */
+    width: 200px; /* Ajustez la taille de l'image */
+    animation: slide-right 3s ease-in-out infinite; /* Animation */
+}
+
+/* Définition de l'animation */
+@keyframes slide-right {
+    0% {
+        transform: translateX(-100%); /* Commence hors de l'écran à gauche */
+    }
+    50% {
+        transform: translateX(50%); /* Se déplace vers le centre */
+    }
+    100% {
+        transform: translateX(100%); /* Sort de l'écran à droite */
+    }
+}
 /*---------------------------------------------------3D---------------------------------------------------------- */
 .viewer-section {
     overflow: hidden;
